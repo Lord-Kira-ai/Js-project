@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colorchange</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #button {
+            display: inline-block;
+            /* width: 40%; */
+            border: 1px solid black;
+            background: transparent;
+            border-radius: 8px;
+            /* width: 70%; */
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            padding: 10px 30px;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="button">click me</button>
+    <script>
+        const button = document.getElementById('button');
+        const body = document.querySelector('body');
+        console.log(body);
+        let colors = ["#0000ff","#ffee00","#ff00d4","#ff0000","#48ff00","#00ffaa","orange","#f700ff","#ff0080","pink"];
+        let i = 0;
+        button.addEventListener('click',function(){
+            let colorindex = parseInt(Math.random()*colors.length-1);
+            body.style.backgroundColor = colors[colorindex];
+        })
+    </script>
+</body>
+
+</html>

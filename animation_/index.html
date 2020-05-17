@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: pink;
+        }
+
+        #circle {
+            /* border: 1px solid black; */
+            width: 15rem;
+            height: 15rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* padding: 2rem; */
+            background: linear-gradient(rgb(255, 105, 180), rgb(255, 255, 255));
+            outline: none;
+            font-family: sans-serif;
+            border-radius: 9999px;
+            box-shadow: 0 0 20px 15px white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="circle">
+        <!-- <h1>Animation</h1> -->
+    </div>
+    <script>
+        const circle = document.querySelector('#circle');
+        // const h1 = document.querySelector('h1');
+        // h1.onmousemove = damn;
+        // h1.onmouseout = damn_;
+        // function damn(){
+        //     h1.textContent = "Yes";
+        // }
+        // function damn_(){
+        //     h1.textContent = "Damn";
+        // }
+        // circle.addEventListener('onmouseout',no_animate);
+        circle.onmousemove = animate;
+        circle.onmouseout = no_animate;
+        function animate() {
+            // var data=0;
+            // const stop = setInterval(function(){
+            for (let data = 10; data <= 40; data++) {
+                // data++;
+                // console.log(data)
+                circle.style.cssText = `width: ${data}rem; height: ${data}rem; transition: 500ms ease-in-out;`;
+
+                // if(data === 40){
+                //     clearInterval(stop)
+                // }
+
+            }/*, 10);*/
+
+        }
+        function no_animate() {
+            // var data=0;
+            // const stop = setInterval(function(){
+            for (let data = 40; data > 10; data--) {
+                // data++;
+                // console.log(data)
+                circle.style.cssText = `width: ${data}rem; height: ${data}rem; background: linear-gradient(rgb(255, 255, 255), rgb(255, 105, 180)); transition: 500ms ease-in-out;`;
+                // if(data === 40){
+                    
+                //     clearInterval(stop)
+                // }
+
+            }/*, 10);*/
+
+        }
+
+    </script>
+</body>
+
+</html>

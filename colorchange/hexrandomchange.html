@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colorchange</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #button {
+            width: 30%;
+            /* border: 1px solid black; */
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        #btn {
+            display: inline-block;
+            border: 1px solid black;
+            background: transparent;
+            border-radius: 8px;
+            font-size: 20px;
+            padding: 10px 30px;
+            cursor: pointer;
+            outline: none;
+            font-family: sans-serif;
+            box-shadow: 0 0 10px 5px rgba(36, 24, 24, 0.2);
+        }
+
+        #hexvalue {
+            font-size: 30px;
+            height: 30px;
+            font-family: sans-serif;
+            color: white;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="button">
+        <p id="hexvalue"></p>
+        <button id="btn">click me</button>
+    </div>
+
+    <script>
+        const button = document.getElementById('btn');
+        const body = document.querySelector('body');
+        const hexvalue = document.querySelector('#hexvalue');
+        // console.log(body);
+        let colors = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+        button.addEventListener('click', function () {
+            let hex = "#";
+            for (i = 0; i < 6; ++i) {
+                const index = Math.floor(Math.random() * colors.length);
+                hex += colors[index];
+                console.log(hex);
+            }
+            hexvalue.textContent = "Hex value: " + hex;
+            body.style.backgroundColor = hex;
+        })
+    </script>
+</body>
+
+</html>
